@@ -36,6 +36,8 @@
 var WinmailOpenerBridge = {
 	init : function()
 	{
+		window.removeEventListener('DOMContentLoaded', this, false);
+
 		if ('openAttachment' in window) {
 			eval('window.openAttachment = '+
 				window.openAttachment.toSource().replace(
@@ -125,7 +127,7 @@ var WinmailOpenerBridge = {
 		var exe = this.registry.getValue(this.prefs.getPref('extensions.winmaildat@clear-code.com.opener.key'));
 		try {
 			if (exe)
-				xe = this.getFileWithPath(exe);
+				exe = this.getFileWithPath(exe);
 		}
 		catch(e) {
 		}
@@ -134,7 +136,7 @@ var WinmailOpenerBridge = {
 			exe = this.prefs.getPref('extensions.winmaildat@clear-code.com.opener.path');
 			try {
 				if (exe)
-					xe = this.getFileWithPath(exe);
+					exe = this.getFileWithPath(exe);
 			}
 			catch(e) {
 			}
