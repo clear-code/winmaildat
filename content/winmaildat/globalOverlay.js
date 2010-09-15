@@ -143,7 +143,7 @@ var WinmailOpenerBridge = {
 		}
 
 		if (!exe) {
-			window.alert('Winmail Opener not found!');
+			window.alert(this.bundle.get('error_notfound'));
 			return;
 		}
 
@@ -172,6 +172,14 @@ var WinmailOpenerBridge = {
 		var ns = {};
 		Components.utils.import('resource://winmaildat-modules/prefs.js', ns);
 		return this.prefs = ns.prefs;
+	},
+
+	get bundle()
+	{
+		delete this.prefs;
+		var ns = {};
+		Components.utils.import('resource://winmaildat-modules/stringBundle.js', ns);
+		return this.bundle = ns.stringBundle.get('chrome://winmaildat/locale/winmaildat.properties');
 	},
 
 	mIOService : Components.classes['@mozilla.org/network/io-service;1']
