@@ -143,7 +143,7 @@ var WinmailOpenerBridge = {
 		}
 
 		if (!exe) {
-			window.alert(this.bundle.get('error_notfound'));
+			window.alert(this.bundle.getString('error_notfound'));
 			return;
 		}
 
@@ -176,7 +176,7 @@ var WinmailOpenerBridge = {
 
 	get bundle()
 	{
-		delete this.prefs;
+		delete this.bundle;
 		var ns = {};
 		Components.utils.import('resource://winmaildat-modules/stringBundle.js', ns);
 		return this.bundle = ns.stringBundle.get('chrome://winmaildat/locale/winmaildat.properties');
