@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RDF:RDF xmlns:em="http://www.mozilla.org/2004/em-rdf#"
+         xmlns:NC="http://home.netscape.com/NC-rdf#"
+         xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <RDF:Description RDF:about="urn:mozilla:install-manifest"
+                   em:id="winmaildat@clear-code.com"
+                   em:name="Winmail Opener Bridge"
+                   em:version="0.1"
+                   em:description="Opens attached winmail.dat by Winmail Opener automatically."
+                   em:creator="ClearCode Inc."
+                   em:homepageURL="http://www.clear-code.com/">
+
+
+    <em:updateURL>http://www.clear-code.com/update.rdf</em:updateURL>
+    <em:updateKey>MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDN4ESXDa0ljqzSDoGs9yy82aR+8tPBIPT8O3FwvXleCB815eOCIKH4lT7L7nK9LKOzdrP5EwiqfugyM+SEXSikbgi+UEfM04HqAomXWUqc7tvXb1kmqx2VwLHxm1tiKuulv1HgHmJtYOh09Tv3+q6VOGX2SDcNe6dgnhnAIP4kYwIDAQAB</em:updateKey>
+
+	<em:targetApplication>
+      <!-- Thunderbird -->
+		<Description em:id="{3550f703-e582-4d05-9a08-453d09bdfdc6}"
+			em:minVersion="3.0"
+			em:maxVersion="3.1.*" />
+	</em:targetApplication>
+  </RDF:Description>
+</RDF:RDF>

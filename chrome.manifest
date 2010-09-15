@@ -1,0 +1,10 @@
+content	winmaildat	jar:chrome/winmaildat.jar!/content/winmaildat/
+
+overlay	chrome://messenger/content/messenger.xul	chrome://openshortcuts/content/globalOverlay.xul
+overlay	chrome://messenger/content/messageWindow.xul	chrome://openshortcuts/content/globalOverlay.xul
+overlay	chrome://messenger/content/messengercompose/messengercompose.xul	chrome://winmaildat/content/globalOverlay.xul
+
+locale	winmaildat	en-US	jar:chrome/winmaildat.jar!/locale/en-US/winmaildat/
+locale	winmaildat	ja	jar:chrome/winmaildat.jar!/locale/ja/winmaildat/
+
+resource winmaildat-modules modules/
