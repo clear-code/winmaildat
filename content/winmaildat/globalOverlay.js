@@ -14,7 +14,7 @@
  * The Original Code is "Winmail Opener Bridge".
  *
  * The Initial Developer of the Original Code is ClearCode Inc.
- * Portions created by the Initial Developer are Copyright (C) 2010
+ * Portions created by the Initial Developer are Copyright (C) 2010-2012
  * the Initial Developer. All Rights Reserved.
  *
  * Contributor(s): ClearCode Inc. <info@clear-code.com>
@@ -38,12 +38,27 @@ var WinmailOpenerBridge = {
 	{
 		window.removeEventListener('DOMContentLoaded', this, false);
 
+		// Thunderbird 3
 		if ('openAttachment' in window) {
 			eval('window.openAttachment = '+
 				window.openAttachment.toSource().replace(
 					'{',
 					<![CDATA[$&
 						if (window.WinmailOpenerBridge.handleAttachment(aAttachment))
+							return;
+					]]>.toString()
+				)
+			);
+		}
+
+		// Thunderbird 10
+		if ('AttachmentInfo' in window &&
+			AttachmentInfo.prototype.open) {
+			eval('AttachmentInfo.prototype.open = '+
+				AttachmentInfo.prototype.open.toSource().replace(
+					'{',
+					<![CDATA[$&
+						if (this.hasFile && window.WinmailOpenerBridge.handleAttachment(this))
 							return;
 					]]>.toString()
 				)
@@ -66,7 +81,7 @@ var WinmailOpenerBridge = {
 	},
 
 	handleAttachment : function(aAttachment) {
-		var fileName = aAttachment.displayName;
+		var fileName = aAttachment.displayName || aAttachment.name;
 		if (fileName.toLowerCase() != 'winmail.dat')
 			return false;
 
