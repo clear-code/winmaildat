@@ -1,5 +1,5 @@
 set appname=%~n0
 
 copy buildscript\makexpi.sh .\
-bash makexpi.sh %appname% version=1
+bash makexpi.sh -n %appname% -v
 del makexpi.sh

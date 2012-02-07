@@ -4,6 +4,6 @@ appname=${0##*/}
 appname=${appname%.sh}
 
 cp buildscript/makexpi.sh ./
-./makexpi.sh $appname version=1
+./makexpi.sh -n $appname -v
 rm ./makexpi.sh
 
