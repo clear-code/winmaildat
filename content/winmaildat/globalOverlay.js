@@ -14,7 +14,7 @@
  * The Original Code is "Winmail Opener Bridge".
  *
  * The Initial Developer of the Original Code is ClearCode Inc.
- * Portions created by the Initial Developer are Copyright (C) 2010-2012
+ * Portions created by the Initial Developer are Copyright (C) 2010-2013
  * the Initial Developer. All Rights Reserved.
  *
  * Contributor(s): ClearCode Inc. <info@clear-code.com>
@@ -43,10 +43,9 @@ var WinmailOpenerBridge = {
 			eval('window.openAttachment = '+
 				window.openAttachment.toSource().replace(
 					'{',
-					<![CDATA[$&
-						if (window.WinmailOpenerBridge.handleAttachment(aAttachment))
-							return;
-					]]>.toString()
+					'$&\n' +
+					'  if (window.WinmailOpenerBridge.handleAttachment(aAttachment))\n' +
+					'    return;\n'
 				)
 			);
 		}
@@ -57,10 +56,9 @@ var WinmailOpenerBridge = {
 			eval('AttachmentInfo.prototype.open = '+
 				AttachmentInfo.prototype.open.toSource().replace(
 					'{',
-					<![CDATA[$&
-						if (this.hasFile && window.WinmailOpenerBridge.handleAttachment(this))
-							return;
-					]]>.toString()
+					'$&\n' +
+					'  if (this.hasFile && window.WinmailOpenerBridge.handleAttachment(this))\n' +
+					'    return;\n'
 				)
 			);
 		}
