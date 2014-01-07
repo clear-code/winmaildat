@@ -91,6 +91,7 @@ var WinmailOpenerBridge = {
 				return true;
 			}
 			catch(e) {
+				Components.utils.reportError(e);
 			}
 		}
 		else {
@@ -130,6 +131,7 @@ var WinmailOpenerBridge = {
 				return true;
 			}
 			catch(e) {
+				Components.utils.reportError(e);
 			}
 		}
 		return false;
@@ -143,6 +145,7 @@ var WinmailOpenerBridge = {
 				exe = this.getFileWithPath(exe);
 		}
 		catch(e) {
+			Components.utils.reportError(e);
 		}
 
 		if (!exe) {
@@ -152,6 +155,7 @@ var WinmailOpenerBridge = {
 					exe = this.getFileWithPath(exe);
 			}
 			catch(e) {
+				Components.utils.reportError(e);
 			}
 		}
 
