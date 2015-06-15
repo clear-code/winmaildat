@@ -6,6 +6,7 @@
                    em:id="winmaildat@clear-code.com"
                    em:name="Winmail Opener Bridge"
                    em:version="1.0"
+                   em:type="2"
                    em:description="Opens attached winmail.dat by Winmail Opener automatically."
                    em:creator="ClearCode Inc."
                    em:homepageURL="http://www.clear-code.com/">
